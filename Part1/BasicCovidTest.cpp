@@ -1,6 +1,6 @@
 #include "CovidCase.h"
 
-
+//trop lol
 int main() {
     // this just make some objects for you
     CovidCase patientA(51.5115, -0.1160, "PatientA", 48, 49);
