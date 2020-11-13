@@ -28,7 +28,7 @@ class CovidCase{
                 name = n ;
                 age = a;
                 positiveT = p ;
-            }
+            };
 
 
     float distanceTo(const CovidCase& patient)
