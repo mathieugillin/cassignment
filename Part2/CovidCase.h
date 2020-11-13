@@ -33,7 +33,7 @@ class CovidCase{
             string substr;
             getline(ss, substr, ',');
             v.push_back(substr);
-            };
+            }
             
             string sLatitude = v[0];
             string sLongitude= v[1];
@@ -56,7 +56,7 @@ class CovidCase{
                 name = n ;
                 age = a;
                 positiveT = p ;
-            };
+            }
 
 
     float distanceTo(const CovidCase& patient)
