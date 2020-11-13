@@ -2,9 +2,16 @@
 #define BEST_FIRST_SEARCH_H
 
 #include "Searchable.h"
-
 #include <memory>
 using std::unique_ptr;
+using std::shared_ptr;
+
+#include <queue>
+using std::priority_queue;
+
+#include <iostream>
+using std::cout;
+using std::endl;
 
 class BestFirstSearch {
 
@@ -18,7 +25,7 @@ public:
 
     BestFirstSearch(std::unique_ptr<Searchable> && startFrom) {
         // TODO Put startFrom onto the queue:
-        
+        pQ.push(std::move(startFrom));
     }
     
     int getNodesExpanded() const {
@@ -28,7 +35,23 @@ public:
     Searchable * solve() {
             
         // TODO Implement search, returning a pointer to the solution (if one is found)
-    
+                
+        while (!pQ.empty()) {
+            if (pQ.top()->isSolution()) {
+                return pQ.top().get();
+            }
+            ++nodes;
+             
+            shared_ptr<Searchable> current(std::move(pQ.top()));
+            pQ.pop();
+            vector<unique_ptr<Searchable>> successors = current->successors();
+            
+
+            for (auto & successor : successors) {
+                pQ.push(std::move(successor));
+            }
+        }
+
         return nullptr;
     }
 };
