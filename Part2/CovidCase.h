@@ -33,7 +33,7 @@ class CovidCase{
             string substr;
             getline(ss, substr, ',');
             v.push_back(substr);
-            }
+            };
             
             string sLatitude = v[0];
             string sLongitude= v[1];
@@ -56,7 +56,7 @@ class CovidCase{
                 name = n ;
                 age = a;
                 positiveT = p ;
-            }
+            };
 
 
     float distanceTo(const CovidCase& patient)
@@ -93,7 +93,6 @@ os<<"{"<<patient.latitude<<", "<<patient.longitude<<", \""<<patient.name<<"\", "
 return os;
 }
 
-// overload operator == that returns true if the objects are equal i.e values for corresponding fields for both the objects are equal else return false
 bool CovidCase::operator==(const CovidCase& covid) const
 {
 return(longitude == covid.longitude && latitude == covid.latitude &&
